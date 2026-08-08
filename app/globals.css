@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --surface: #141414;
+  --surface-raised: #1c1c1c;
+  --border-subtle: #2a2a2a;
+  --gold-start: #c9a227;
+  --gold-mid: #f5d067;
+  --gold-end: #c9a227;
+  --muted: #9a9a9a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border-subtle: var(--border-subtle);
+  --color-gold: var(--gold-start);
+  --color-muted: var(--muted);
+  --font-display: var(--font-barlow-condensed);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-barlow-condensed), ui-sans-serif, system-ui, sans-serif;
+}
+
+.gold-text {
+  background: linear-gradient(135deg, var(--gold-start), var(--gold-mid) 45%, var(--gold-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-start), var(--gold-mid) 45%, var(--gold-end));
+  color: #0a0a0a;
+  font-weight: 700;
+}
+
+.btn-gold:hover {
+  filter: brightness(1.08);
+}
+
+.card-surface {
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+}
+
+.skeleton-gold {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #1c1c1c 0%, #262626 50%, #1c1c1c 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+::selection {
+  background: var(--gold-start);
+  color: #0a0a0a;
+}
+
+.toast-enter {
+  animation: toast-enter 0.2s ease-out;
+}
+
+@keyframes toast-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
