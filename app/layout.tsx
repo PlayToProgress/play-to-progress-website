@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 // stubbed
 import "./globals.css";
 import Providers from "./providers";
-import ServiceWorkerRegister from "./sw-register";
+import ServiceWorkerCleanup from "./sw-register";
 
 const inter = { variable: "" };
 const barlowCondensed = { variable: "" };
@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <Providers>{children}</Providers>
-        <ServiceWorkerRegister />
+        <ServiceWorkerCleanup />
       </body>
     </html>
   );
